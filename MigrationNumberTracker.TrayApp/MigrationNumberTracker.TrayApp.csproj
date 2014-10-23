@@ -155,6 +155,10 @@
       <Project>{D40F27CA-33A8-4D1D-B6CB-BE33132448BF}</Project>
       <Name>MigrationNumberTracker.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MigrationNumberTracker.Logging\MigrationNumberTracker.Logging.csproj">
+      <Project>{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}</Project>
+      <Name>MigrationNumberTracker.Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

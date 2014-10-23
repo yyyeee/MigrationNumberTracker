@@ -33,7 +33,7 @@ namespace MigrationNumberTracker.TrayApp
             }
             catch (Exception e)
             {
-                _icon.HandleExceptionInHardcoreWay(e);
+                _icon.HandleException(e);
             }
         }
 
@@ -58,7 +58,7 @@ namespace MigrationNumberTracker.TrayApp
             catch (Exception e)
             {
                 pbStatus.Image = Resources.Failure;
-                _icon.HandleExceptionInHardcoreWay(e);
+                _icon.HandleException(e);
             }
 
             Settings.Default.LastResrevedMigration = null;

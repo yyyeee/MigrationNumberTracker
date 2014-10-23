@@ -3,6 +3,7 @@ using System.Text;
 using System.Windows.Forms;
 using MigrationNumberTracker.Client;
 using MigrationNumberTracker.Common;
+using MigrationNumberTracker.Logging;
 using MigrationNumberTracker.TrayApp.Properties;
 
 namespace MigrationNumberTracker.TrayApp
@@ -16,6 +17,7 @@ namespace MigrationNumberTracker.TrayApp
         private ToolStripMenuItem _undoToolStripMenuItem;
         private SettingsWindow _settingsWindow;
         private ManageManuallyWindow _manageManuallyWindow;
+        private static readonly Log Log = new Log();
 
         public MainIcon()
         {
@@ -98,14 +100,15 @@ namespace MigrationNumberTracker.TrayApp
             }
             catch (Exception e)
             {
-                HandleExceptionInHardcoreWay(e);
+                HandleException(e);
             }
         }
 
-        public void HandleExceptionInHardcoreWay(Exception e)
+        public void HandleException(Exception e)
         {
+            Log.Error(e);
             Clipboard.SetText(GetExceptionDetails(e));
-            _mainIcon.ShowBalloonTip(60000, "Logs are for pussies!", "Exception details copied to clipboard", ToolTipIcon.Error);
+            _mainIcon.ShowBalloonTip(60000, "Log updated", "Exception details also copied to clipboard", ToolTipIcon.Error);
         }
 
         private string GetExceptionDetails(Exception e)
@@ -232,7 +235,7 @@ namespace MigrationNumberTracker.TrayApp
             }
             catch (Exception e)
             {
-                HandleExceptionInHardcoreWay(e);
+                HandleException(e);
             }
         }
 

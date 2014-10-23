@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Server", "MigrationNumberTracker.Server\MigrationNumberTracker.Server.csproj", "{16F46031-CABE-469D-BCD4-C39FD71132F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.ResharperPlugin", "MigrationNumberTracker.ResharperPlugin\MigrationNumberTracker.ResharperPlugin.csproj", "{CAAC2494-08A9-4222-B4FB-1AA205628785}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Client", "MigrationNumberTracker.Client\MigrationNumberTracker.Client.csproj", "{29D29A93-8D8A-4C22-ADAD-9A47931DB993}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Common", "MigrationNumberTracker.Common\MigrationNumberTracker.Common.csproj", "{D40F27CA-33A8-4D1D-B6CB-BE33132448BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.TrayApp", "MigrationNumberTracker.TrayApp\MigrationNumberTracker.TrayApp.csproj", "{AD2D05D9-E217-40F2-B469-9E56EBA607B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Logging", "MigrationNumberTracker.Logging\MigrationNumberTracker.Logging.csproj", "{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{16F46031-CABE-469D-BCD4-C39FD71132F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16F46031-CABE-469D-BCD4-C39FD71132F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16F46031-CABE-469D-BCD4-C39FD71132F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAAC2494-08A9-4222-B4FB-1AA205628785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAAC2494-08A9-4222-B4FB-1AA205628785}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAAC2494-08A9-4222-B4FB-1AA205628785}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAAC2494-08A9-4222-B4FB-1AA205628785}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29D29A93-8D8A-4C22-ADAD-9A47931DB993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29D29A93-8D8A-4C22-ADAD-9A47931DB993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D29A93-8D8A-4C22-ADAD-9A47931DB993}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{AD2D05D9-E217-40F2-B469-9E56EBA607B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD2D05D9-E217-40F2-B469-9E56EBA607B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD2D05D9-E217-40F2-B469-9E56EBA607B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
