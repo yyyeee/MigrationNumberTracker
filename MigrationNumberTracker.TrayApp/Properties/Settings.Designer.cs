@@ -45,5 +45,29 @@ namespace MigrationNumberTracker.TrayApp.Properties {
                 this["LastResrevedMigration"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\projects\\easyclaims")]
+        public string SolutionDir {
+            get {
+                return ((string)(this["SolutionDir"]));
+            }
+            set {
+                this["SolutionDir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("master")]
+        public string CurrentBranch {
+            get {
+                return ((string)(this["CurrentBranch"]));
+            }
+            set {
+                this["CurrentBranch"] = value;
+            }
+        }
     }
 }

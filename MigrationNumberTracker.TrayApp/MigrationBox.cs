@@ -12,24 +12,32 @@ namespace MigrationNumberTracker.TrayApp
         private readonly MainIcon _icon;
         private readonly MigrationNumberTrackerClient _client;
         private readonly MigrationType _type;
+        private string _branch;
         private Timer _timer;
-        public MigrationBox(MainIcon icon, MigrationNumberTrackerClient client, MigrationType type)
+        public MigrationBox(MainIcon icon, MigrationNumberTrackerClient client, MigrationType type, string branch)
         {
             _icon = icon;
             _client = client;
             _type = type;
             InitializeComponent();
             lblMigrationType.Text = type + ":";
+            Branch = branch;
             RefreshData();
             _timer = new Timer {Interval = 3000};
             _timer.Tick += TimerTick;
+        }
+
+        public string Branch
+        {
+            get { return _branch; }
+            set { _branch = value; }
         }
 
         public void RefreshData()
         {
             try
             {
-                nudMigrationNumber.Value = _client.ReadMigrationNumber(_type);
+                nudMigrationNumber.Value = _client.ReadMigrationNumber(Branch, _type);
             }
             catch (Exception e)
             {
@@ -52,7 +60,7 @@ namespace MigrationNumberTracker.TrayApp
         {
             try
             {
-                _client.UpdateMigrationNumber(_type, (long) nudMigrationNumber.Value);
+                _client.UpdateMigrationNumber(Branch, _type, (long)nudMigrationNumber.Value);
                 pbStatus.Image = Resources.Success;
             }
             catch (Exception e)

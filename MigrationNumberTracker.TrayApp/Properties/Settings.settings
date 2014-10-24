@@ -8,5 +8,11 @@
     <Setting Name="LastResrevedMigration" Type="MigrationNumberTracker.Common.MigrationTuple" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="SolutionDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\projects\easyclaims</Value>
+    </Setting>
+    <Setting Name="CurrentBranch" Type="System.String" Scope="User">
+      <Value Profile="(Default)">master</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

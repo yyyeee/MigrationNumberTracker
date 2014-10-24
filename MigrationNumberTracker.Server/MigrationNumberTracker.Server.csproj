@@ -72,7 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\data.xml" />
+    <Content Include="App_Data\master.xml" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -82,6 +82,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HttpExceptionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,10 @@
     <ProjectReference Include="..\MigrationNumberTracker.Data\MigrationNumberTracker.Data.csproj">
       <Project>{7B8D8066-B232-4503-9EE6-37F63ED2A3C9}</Project>
       <Name>MigrationNumberTracker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MigrationNumberTracker.Logging\MigrationNumberTracker.Logging.csproj">
+      <Project>{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}</Project>
+      <Name>MigrationNumberTracker.Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

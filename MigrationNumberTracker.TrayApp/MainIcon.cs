@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MigrationNumberTracker.Client;
 using MigrationNumberTracker.Common;
+using MigrationNumberTracker.GitIntegration;
 using MigrationNumberTracker.Logging;
 using MigrationNumberTracker.TrayApp.Properties;
 
@@ -18,6 +20,8 @@ namespace MigrationNumberTracker.TrayApp
         private SettingsWindow _settingsWindow;
         private ManageManuallyWindow _manageManuallyWindow;
         private static readonly Log Log = new Log();
+        public readonly BranchProvider _branchProvider;
+        private ToolStripMenuItem _branchesMenuItem;
 
         public MainIcon()
         {
@@ -29,12 +33,24 @@ namespace MigrationNumberTracker.TrayApp
                 Icon = Resources.MainIcon,
             };
             _mainIcon.MouseClick += MainIconClick;
-            _leftClickContextMenuStrip = GenerateLeftClickMenu();
-            _rightClickContextMenuStrip = GenerateRightClickMenu();
+
+            if (string.IsNullOrWhiteSpace(Settings.Default.SolutionDir))
+            {
+                ShowSettings(this, new EventArgs());
+            }
+
+            _branchProvider = new BranchProvider
+            {
+                SolutionDir = Settings.Default.SolutionDir,
+            };
+
             _migrationNumberTrackerClient = new MigrationNumberTrackerClient
             {
                 Url = Settings.Default.ServerUrl,
             };
+
+            _leftClickContextMenuStrip = GenerateLeftClickMenu();
+            _rightClickContextMenuStrip = GenerateRightClickMenu();
         }
 
         private void MainIconClick(object sender, MouseEventArgs e)
@@ -79,7 +95,7 @@ namespace MigrationNumberTracker.TrayApp
         {
             try
             {
-                var migrationNumber = _migrationNumberTrackerClient.ReserveMigrationNumber(type);
+                var migrationNumber = _migrationNumberTrackerClient.ReserveMigrationNumber(Settings.Default.CurrentBranch, type);
                 var migrationTuple = new MigrationTuple
                     {
                         MigrationType = type,
@@ -130,6 +146,17 @@ namespace MigrationNumberTracker.TrayApp
         {
             var menu = new ContextMenuStrip();
 
+            var currentBranch = Settings.Default.CurrentBranch;
+            _branchesMenuItem = new ToolStripMenuItem(string.Format("[{0}]", currentBranch), Resources.Branch);
+
+            foreach (var branch in _branchProvider.GetAllRemoteBranches())
+            {
+                _branchesMenuItem.DropDownItems.Add(new ToolStripMenuItem(branch, null, ChangeBranchClick) { Tag = branch });
+            }
+
+            menu.Items.Add(_branchesMenuItem);
+            menu.Items.Add(new ToolStripSeparator());
+
             _undoToolStripMenuItem = new ToolStripMenuItem(Resources.Undo);
             var lastReservedMigration = Settings.Default.LastResrevedMigration;
             if (lastReservedMigration == null
@@ -165,6 +192,13 @@ namespace MigrationNumberTracker.TrayApp
             return menu;
         }
 
+        private void ChangeBranchClick(object sender, EventArgs e)
+        {
+            Settings.Default.CurrentBranch = ((ToolStripMenuItem) sender).Tag.ToString();
+            Settings.Default.Save();
+            _branchesMenuItem.Text = Settings.Default.CurrentBranch;
+        }
+
         private void ShowManageManually(object sender, EventArgs e)
         {
             if (_manageManuallyWindow == null)
@@ -192,7 +226,15 @@ namespace MigrationNumberTracker.TrayApp
                 var result = _settingsWindow.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    _migrationNumberTrackerClient.Url = Settings.Default.ServerUrl;
+                    if (_branchProvider != null)
+                    {
+                        _branchProvider.SolutionDir = Settings.Default.SolutionDir;
+                    }
+
+                    if (_migrationNumberTrackerClient != null)
+                    {
+                        _migrationNumberTrackerClient.Url = Settings.Default.ServerUrl;
+                    }
                 }
             }
             _settingsWindow.Focus();
@@ -208,11 +250,12 @@ namespace MigrationNumberTracker.TrayApp
             try
             {
                 var lastReservedMigration = Settings.Default.LastResrevedMigration;
+                var currentBranch = Settings.Default.CurrentBranch;
                 var currentReservedMigrationNumber =
-                    _migrationNumberTrackerClient.ReadMigrationNumber(lastReservedMigration.MigrationType);
+                    _migrationNumberTrackerClient.ReadMigrationNumber(currentBranch, lastReservedMigration.MigrationType);
                 if (currentReservedMigrationNumber == lastReservedMigration.Number)
                 {
-                    _migrationNumberTrackerClient.UpdateMigrationNumber(lastReservedMigration.MigrationType,
+                    _migrationNumberTrackerClient.UpdateMigrationNumber(currentBranch, lastReservedMigration.MigrationType,
                         --lastReservedMigration.Number);
                     Settings.Default.LastResrevedMigration = null;
                     Settings.Default.Save();

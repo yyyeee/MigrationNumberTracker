@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Tray
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Logging", "MigrationNumberTracker.Logging\MigrationNumberTracker.Logging.csproj", "{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.Tests", "MigrationNumberTracker.Tests\MigrationNumberTracker.Tests.csproj", "{AD65AEDB-B833-44A0-9653-ED3D32F7A8D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationNumberTracker.GitIntegration", "MigrationNumberTracker.GitIntegration\MigrationNumberTracker.GitIntegration.csproj", "{5079E89E-3B78-4E79-BC1B-A61C95ED00AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD65AEDB-B833-44A0-9653-ED3D32F7A8D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD65AEDB-B833-44A0-9653-ED3D32F7A8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD65AEDB-B833-44A0-9653-ED3D32F7A8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD65AEDB-B833-44A0-9653-ED3D32F7A8D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5079E89E-3B78-4E79-BC1B-A61C95ED00AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5079E89E-3B78-4E79-BC1B-A61C95ED00AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5079E89E-3B78-4E79-BC1B-A61C95ED00AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5079E89E-3B78-4E79-BC1B-A61C95ED00AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

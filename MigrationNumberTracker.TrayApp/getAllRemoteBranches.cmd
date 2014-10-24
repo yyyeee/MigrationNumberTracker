@@ -1,0 +1,1 @@
+git ls-remote --heads origin  | sed 's?.*refs/heads/??'

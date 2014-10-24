@@ -12,17 +12,23 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>d:\MigrationNumberTracker.TrayApp\</PublishUrl>
+    <PublishUrl>\\ecx-build\Share\MigrationNumberTracker.TrayApp\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>1</UpdateInterval>
+    <UpdateIntervalUnits>Hours</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <UpdateUrl>\\ecx-build\Share\MigrationNumberTracker.TrayApp\</UpdateUrl>
+    <SupportUrl>https://github.com/myheadgonnablow/MigrationNumberTracker</SupportUrl>
+    <ErrorReportUrl>https://github.com/myheadgonnablow/MigrationNumberTracker</ErrorReportUrl>
+    <ProductName>ECB Migration Number Tracker</ProductName>
+    <PublisherName>Alexander Levchuk %40 Scalepoint ECB</PublisherName>
+    <MinimumRequiredVersion>1.0.0.7</MinimumRequiredVersion>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -132,6 +138,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="getAllRemoteBranches.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Success.png" />
     <None Include="Resources\CSharpTransparent.png" />
     <None Include="Resources\ico222032.ico" />
@@ -143,6 +152,8 @@
     <None Include="Resources\ChangeManually.png" />
     <None Include="Resources\AddMigration.png" />
     <Content Include="MainIcon.ico" />
+    <Content Include="Resources\Branch.png" />
+    <Content Include="Resources\Browse.png" />
     <Content Include="Resources\Failure.png" />
     <Content Include="Resources\MainIcon.ico" />
   </ItemGroup>
@@ -154,6 +165,10 @@
     <ProjectReference Include="..\MigrationNumberTracker.Common\MigrationNumberTracker.Common.csproj">
       <Project>{D40F27CA-33A8-4D1D-B6CB-BE33132448BF}</Project>
       <Name>MigrationNumberTracker.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MigrationNumberTracker.GitIntegration\MigrationNumberTracker.GitIntegration.csproj">
+      <Project>{5079E89E-3B78-4E79-BC1B-A61C95ED00AB}</Project>
+      <Name>MigrationNumberTracker.GitIntegration</Name>
     </ProjectReference>
     <ProjectReference Include="..\MigrationNumberTracker.Logging\MigrationNumberTracker.Logging.csproj">
       <Project>{C7EFCC14-3BE6-4354-9B98-3C0B224EFF0C}</Project>

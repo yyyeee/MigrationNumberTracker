@@ -2,6 +2,7 @@
 using System.Net;
 using MigrationNumberTracker.Common;
 using RestSharp;
+using RestSharp.Contrib;
 
 namespace MigrationNumberTracker.Client
 {
@@ -9,10 +10,11 @@ namespace MigrationNumberTracker.Client
     {
         public string Url { get; set; }
 
-        public long ReserveMigrationNumber(MigrationType type)
+        public long ReserveMigrationNumber(string branch, MigrationType type)
         {
             var client = new RestClient(Url);
-            var request = new RestRequest("migrations/{type}/reserve", Method.POST) {RequestFormat = DataFormat.Json};
+            var request = new RestRequest("migrations/{encodedBranch}/{type}/reserve", Method.POST) {RequestFormat = DataFormat.Json};
+            request.AddParameter("encodedBranch", HttpUtility.UrlEncode(branch), ParameterType.UrlSegment);
             request.AddParameter("type", type.ToString(), ParameterType.UrlSegment);
             var response = client.Execute(request);
             ThrowIfFailed(response);
@@ -30,20 +32,22 @@ namespace MigrationNumberTracker.Client
             return result;
         }
 
-        public void UpdateMigrationNumber(MigrationType type, long number)
+        public void UpdateMigrationNumber(string branch, MigrationType type, long number)
         {
             var client = new RestClient(Url);
-            var request = new RestRequest("migrations/{type}/{number}", Method.POST);
+            var request = new RestRequest("migrations/{encodedBranch}/{type}/{number}", Method.POST);
+            request.AddParameter("encodedBranch", HttpUtility.UrlEncode(branch), ParameterType.UrlSegment);
             request.AddParameter("type", type, ParameterType.UrlSegment);
             request.AddParameter("number", number, ParameterType.UrlSegment);
             var response = client.Execute(request);
             ThrowIfFailed(response);
         }
 
-        public long ReadMigrationNumber(MigrationType type)
+        public long ReadMigrationNumber(string branch, MigrationType type)
         {
             var client = new RestClient(Url);
-            var request = new RestRequest("migrations/{type}", Method.GET);
+            var request = new RestRequest("migrations/{encodedBranch}/{type}", Method.GET);
+            request.AddParameter("encodedBranch", HttpUtility.UrlEncode(branch), ParameterType.UrlSegment);
             request.AddParameter("type", type, ParameterType.UrlSegment);
             var response = client.Execute(request);
             ThrowIfFailed(response);
