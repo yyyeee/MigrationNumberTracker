@@ -53,6 +53,7 @@ namespace MigrationNumberTracker.TrayApp
             foreach (MigrationBox migrationBox in grbxMigrations.Controls)
             {
                 migrationBox.Branch = cbBranches.SelectedValue.ToString();
+                migrationBox.RefreshData();
             }
         }
     }

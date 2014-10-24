@@ -196,7 +196,7 @@ namespace MigrationNumberTracker.TrayApp
         {
             Settings.Default.CurrentBranch = ((ToolStripMenuItem) sender).Tag.ToString();
             Settings.Default.Save();
-            _branchesMenuItem.Text = Settings.Default.CurrentBranch;
+            _branchesMenuItem.Text =string.Format("[{0}]", Settings.Default.CurrentBranch);
         }
 
         private void ShowManageManually(object sender, EventArgs e)
