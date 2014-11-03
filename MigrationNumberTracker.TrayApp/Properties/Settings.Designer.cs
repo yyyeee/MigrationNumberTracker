@@ -48,7 +48,7 @@ namespace MigrationNumberTracker.TrayApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\projects\\easyclaims")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SolutionDir {
             get {
                 return ((string)(this["SolutionDir"]));

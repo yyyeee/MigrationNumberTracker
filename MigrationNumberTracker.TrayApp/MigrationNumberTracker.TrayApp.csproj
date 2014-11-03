@@ -16,7 +16,7 @@
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>1</UpdateInterval>
     <UpdateIntervalUnits>Hours</UpdateIntervalUnits>
     <UpdatePeriodically>true</UpdatePeriodically>
@@ -27,7 +27,7 @@
     <ErrorReportUrl>https://github.com/myheadgonnablow/MigrationNumberTracker</ErrorReportUrl>
     <ProductName>ECB Migration Number Tracker</ProductName>
     <PublisherName>Alexander Levchuk %40 Scalepoint ECB</PublisherName>
-    <MinimumRequiredVersion>1.0.0.7</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.0.9</MinimumRequiredVersion>
     <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
