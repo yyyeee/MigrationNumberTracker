@@ -19,9 +19,9 @@ namespace MigrationNumberTracker.Tests.Data
         public void Foo()
         {
             //arrange
-            _provider.UpdateMigrationNumber("testdata", MigrationType.Client, 500);
 
             // act
+            _provider.UpdateMigrationNumber("testdata", MigrationType.Client, 500);
             var result = _provider.ReadMigrationNumber("testdata", MigrationType.Client);
 
             // assert
