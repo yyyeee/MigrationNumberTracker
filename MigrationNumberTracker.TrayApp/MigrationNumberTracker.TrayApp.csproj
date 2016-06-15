@@ -28,7 +28,7 @@
     <ProductName>ECB Migration Number Tracker</ProductName>
     <PublisherName>Alexander Levchuk %40 Scalepoint ECB</PublisherName>
     <MinimumRequiredVersion>1.0.0.9</MinimumRequiredVersion>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

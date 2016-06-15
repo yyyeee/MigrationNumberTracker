@@ -36,9 +36,9 @@
             // 
             // grbxMigrations
             // 
-            this.grbxMigrations.Location = new System.Drawing.Point(12, 39);
+            this.grbxMigrations.Location = new System.Drawing.Point(16, 48);
             this.grbxMigrations.Name = "grbxMigrations";
-            this.grbxMigrations.Size = new System.Drawing.Size(363, 239);
+            this.grbxMigrations.Size = new System.Drawing.Size(484, 337);
             this.grbxMigrations.TabIndex = 0;
             this.grbxMigrations.TabStop = false;
             this.grbxMigrations.Text = "Update LAST USED migration numbers";
@@ -46,26 +46,26 @@
             // cbBranches
             // 
             this.cbBranches.FormattingEnabled = true;
-            this.cbBranches.Location = new System.Drawing.Point(70, 12);
+            this.cbBranches.Location = new System.Drawing.Point(93, 15);
             this.cbBranches.Name = "cbBranches";
-            this.cbBranches.Size = new System.Drawing.Size(305, 21);
+            this.cbBranches.Size = new System.Drawing.Size(405, 24);
             this.cbBranches.TabIndex = 6;
             this.cbBranches.SelectedIndexChanged += new System.EventHandler(this.BranchesSelectedIndexChanged);
             // 
             // lblBranch
             // 
             this.lblBranch.AutoSize = true;
-            this.lblBranch.Location = new System.Drawing.Point(12, 12);
+            this.lblBranch.Location = new System.Drawing.Point(16, 15);
             this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(44, 13);
+            this.lblBranch.Size = new System.Drawing.Size(57, 17);
             this.lblBranch.TabIndex = 5;
             this.lblBranch.Text = "Branch:";
             // 
             // ManageManuallyWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 289);
+            this.ClientSize = new System.Drawing.Size(516, 398);
             this.Controls.Add(this.cbBranches);
             this.Controls.Add(this.lblBranch);
             this.Controls.Add(this.grbxMigrations);

@@ -8,5 +8,6 @@
         IntegrationSettings = 3,
         Log = 4,
         ClientFiles = 5,
+        Bi = 6
     }
 }
