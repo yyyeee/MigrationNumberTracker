@@ -1,9 +1,9 @@
-MigrationNumberTracker
+MigrationNumberTracker (Relevant for Scalepoint employees only)
 ======================
-- трей-клиент для резервирования миграций
-- серверная часть стоит на ecx-build поэтому нужен VPN вне офиса
-- чтобы запускалась при загрузке нужно руками добавить ярлык в папку shell:startup
-- left-click - быстрое меню с пунктами зарезервировать клиент/хост и скопировать префикс Мххх_ в буфер
-- right-click - резервирование нестандартных миграций
-- undo - помогает, если промахнулись по типу миграции (отменит последнюю занятую миграцию, _если_ не было занято после неё, последняя миграция хранится между запусками)
-- Manage manually - форма для ручного редактирования данных 
+- Migration number reservation tray client + REST sever
+- Server part deployed deployed to ecx-build so VPN is needed
+- Use Win+R shell:startup to launch at startup
+- left-click - quick menu to reserve client/host and copy prefix Мххх_ to clipboard
+- right-click - to reserve non-standard migrations
+- undo - helps, if wrong migration type was misclicked (will undo your last migration number reservation _if_ no migration numbers were reserved afterwards, last migration number reserved stored beetween tool launches)
+- Manage manually - use this to manually fix the data 
